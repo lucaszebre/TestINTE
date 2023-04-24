@@ -1,0 +1,341 @@
+@media  (min-width:765px) {
+    .popup-content{
+        max-width: 759px;
+        max-height: 535px;
+    }
+    
+}
+
+
+@media (min-height: 535px) and (min-width:765px) {
+    .popup-content {
+        height: 535px !important;
+    }
+    .popup-image {
+        height: 535px !important;
+    }
+}
+html{
+    overflow-x: hidden;
+}
+body{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden !important;
+}
+
+.popup {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Hidden by default */
+    position: fixed;
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+    opacity: 0; /* Update this from 1 to 0 */
+    transition: opacity 0.3s ease-in-out;
+
+}
+
+.popup.visible {
+    opacity: 1;
+    display: flex; /* Add this line */
+}
+
+.popup-hesite{
+    display: none;
+}
+
+.popup-content{
+    justify-content: start;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 65%;
+    height:70%;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 0px 20px #00000055;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    animation: fadeOutScaleDown 0.5s ease-in-out forwards; /* Add this line */
+}
+
+.popup.visible .popup-content {
+    opacity: 1;
+    transform: scale(1);
+    animation: fadeInScaleUp 0.5s ease-in-out forwards; /* Add this line */
+
+}
+
+.popup-image {
+    margin-left: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 286px;
+    background: transparent url('Image/img_desktop.jpg') 0% 0% no-repeat;
+    background-size: cover; /* change from 'contain' to 'cover' */
+    height: 100%;
+    opacity: 1;
+    position: relative;
+    z-index: 10;
+}
+.trait-left{
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 4px;
+    height: 137px;
+    /* UI Properties */
+    background: #F29301 0% 0% no-repeat padding-box;
+    opacity: 1;
+
+}
+
+.trait-right{
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+    width: 4px;
+    height: 137px;
+    /* UI Properties */
+    background: #F29301 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+.button-popup{
+    width: 261px;
+    height: 66px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 2px solid #F29301;
+    opacity: 1;
+    text-align: center;
+    font-size: 18px;
+    font-family: 'Poppins';
+    letter-spacing: 0px;
+    color: #F29301;
+    text-transform: uppercase;
+    opacity: 1;
+    padding: 1em;
+    cursor: pointer;
+}
+
+.button-popup:hover{
+    background-color: #F29301;
+    color: white;
+}
+.popup-title{
+    font-size: 27px;
+    font-family: 'Poppins';
+    font-weight: bold;
+    margin-bottom: 16px;
+    max-width: 277px;
+    max-height: 77px;
+    width: 100%;
+    height: 100%;
+}
+.popup-description{
+    text-align: left;
+    letter-spacing: 0px;
+    font-weight: 500;
+    font-size: 20px;
+    font-family: 'Poppins';
+    color: #0A0A0A;
+    opacity: 1;
+    margin-bottom: 31px;
+    max-width: 320px;
+    width: 100%;
+}
+
+.popup-hesite-pc{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+
+.popup-hesite-text-pc{
+    text-align: left;
+    font-size: 20px;
+    font-family: 'Poppins';
+    letter-spacing: 0px;
+    color: #F29301;
+    text-transform: uppercase;
+    opacity: 1;
+    margin: 0;
+    padding: 0;
+}
+.trait-pc{
+    width: 70px;
+    height: 2px;
+    /* UI Properties */
+    background: #F29301 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+.btn-close-pc{
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 38px;
+    height: 38px;
+    background: transparent url('Image/ICON\ CLOSE\ GREY.svg') 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+.popup-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    padding: 8%;
+    justify-content: center;
+    
+}
+.btn-close-mobile{
+    display: none;
+}
+
+/* Add the keyframes for fade and scale animations */
+@keyframes fadeInScaleUp {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeOutScaleDown {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0);
+    }
+}
+
+@media (max-width:765px){
+    body{
+        overflow: hidden;
+    }
+    .btn-close-pc{
+        display: none;
+    }
+    .trait-right , .trait-left{
+        display: none;
+    }
+
+    .popup-image{
+        margin: 0;
+        width: 100%;
+        background: transparent url('Image/img_mobile.jpg') 0% 0% no-repeat padding-box;
+        height: 183px;
+        background-size: cover
+    }
+
+        .popup{
+        justify-content: end;
+
+    }
+
+    .popup-content{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        width: 100%;
+        height: 80%;
+        /* UI Properties */
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        box-shadow: 0px 0px 20px #00000055; 
+        opacity: 1;
+    }
+
+    .popup-wrapper{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%; /* change from 80% to 100% */
+        padding: 10%; 
+        box-sizing: border-box; /* Add this line */
+        overflow: hidden;
+    }
+
+    .button-popup{
+        background: #F29301 0% 0% no-repeat padding-box;
+        border: 2px solid #F29301;
+        opacity: 1;
+        height: 53px;
+        width: 100%;
+        text-align: center;
+        font-size: 16px;
+        font-family: 'Poppins';
+        letter-spacing: 0px;
+        color: #FFFFFF;
+        text-transform: uppercase;
+        opacity: 1;
+    }
+    .popup-title{
+        font-size: 22px;
+        margin-bottom: 12px;
+        width: 100%;
+    }
+    .popup-description{
+        font-size: 16px;
+        margin-bottom: 34px;
+        width: 100%;
+    }
+    .popup-hesite{
+        position: absolute;
+        bottom: 10px;
+        gap: 1em;
+        left: 10%;
+        display: flex;
+        flex-direction: column;
+        justify-content: left;        
+    }
+
+    .popup-hesite-text{
+        /* UI Properties */
+        font-family: 'Poppins';
+        font-size: 16px;
+        letter-spacing: 0px;
+        color: #FFFFFF;
+        text-transform: uppercase;
+        opacity: 1;
+    }
+    .popup-hesite-pc{
+        display: none;
+    }
+    .btn-close-mobile{
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 38px;
+        height: 38px;
+        background: transparent url('Image/ICON\ CLOSE.svg') 0% 0% no-repeat padding-box;
+        opacity: 1;
+    }
+
+    .trait{
+        width: 50px;
+        height: 2px;
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        opacity: 1;
+        margin-top: -20px;
+    }
+}
